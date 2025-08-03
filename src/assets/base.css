@@ -1,0 +1,125 @@
+/* color palette for portfolio with purple theme */
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+
+  --vt-c-black: #0f0f23;
+  --vt-c-black-soft: #1a1a2e;
+  --vt-c-black-mute: #16213e;
+
+  --vt-c-purple: #6a4c93;
+  --vt-c-purple-light: #8b5fbf;
+  --vt-c-purple-dark: #4a2c6a;
+  --vt-c-purple-accent: #a663cc;
+
+  --vt-c-divider-light-1: rgba(106, 76, 147, 0.29);
+  --vt-c-divider-light-2: rgba(106, 76, 147, 0.12);
+  --vt-c-divider-dark-1: rgba(166, 99, 204, 0.65);
+  --vt-c-divider-dark-2: rgba(166, 99, 204, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-purple);
+  --vt-c-text-light-2: rgba(106, 76, 147, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.8);
+}
+
+/* semantic color variables for portfolio */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --color-primary: var(--vt-c-purple);
+  --color-primary-light: var(--vt-c-purple-light);
+  --color-primary-dark: var(--vt-c-purple-dark);
+  --color-accent: var(--vt-c-purple-accent);
+
+  --section-gap: 80px;
+  --border-radius: 8px;
+  --shadow: 0 2px 12px rgba(106, 76, 147, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
