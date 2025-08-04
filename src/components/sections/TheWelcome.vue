@@ -1,20 +1,17 @@
 <script setup lang="ts">
 import HeroSection from './HeroSection.vue'
 import StatsSection from './StatsSection.vue'
-import TagList from '../ui/TagList.vue'
 
-// Props - all data comes from parent (HomeView)
+// Updated props to handle tech objects with icons
 defineProps<{
   yearsExperience: number
   stats: Array<{ value: string; label: string }>
   specialties: string[]
   test: string[]
   featuredProjects: Array<{ title: string; description: string }>
-  techStack: {
-    backend: string[]
-    frontend: string[]
-    tools: string[]
-  }
+  backendTech: Array<{ name: string; icon: string }>
+  frontendTech: Array<{ name: string; icon: string }>
+  toolsTech: Array<{ name: string; icon: string }>
   contactLinks: Array<{ type: string; url: string; label: string }>
 }>()
 
@@ -53,7 +50,7 @@ const emit = defineEmits<{
           <div class="specialties-grid">
             <div
               class="specialty-item"
-              v-for="specialty in specialties.slice(0, 6)"
+              v-for="specialty in specialties.slice(0, 4)"
               :key="specialty"
             >
               {{ specialty }}
@@ -83,100 +80,52 @@ const emit = defineEmits<{
         </div>
       </div>
 
-      <!-- Technology Stack Card -->
-      <div class="content-card tech-stack">
+      <!-- Backend Technologies Card -->
+      <div class="content-card backend-tech">
         <div class="card-header">
-          <div class="card-icon">⚡</div>
-          <h3>Tech Stack</h3>
+          <div class="card-icon">⚙️</div>
+          <h3>Backend</h3>
         </div>
         <div class="card-body">
-          <div class="tech-categories">
-            <div class="tech-group">
-              <span class="tech-label">Backend</span>
-              <div class="tech-tags">
-                <span v-for="tech in techStack.backend.slice(0, 3)" :key="tech" class="tech-tag">
-                  {{ tech }}
-                </span>
-              </div>
-            </div>
-            <div class="tech-group">
-              <span class="tech-label">Frontend</span>
-              <div class="tech-tags">
-                <span v-for="tech in techStack.frontend.slice(0, 3)" :key="tech" class="tech-tag">
-                  {{ tech }}
-                </span>
-              </div>
-            </div>
-            <div class="tech-group">
-              <span class="tech-label">Tools</span>
-              <div class="tech-tags">
-                <span v-for="tech in techStack.tools.slice(0, 3)" :key="tech" class="tech-tag">
-                  {{ tech }}
-                </span>
-              </div>
+          <p>Server-side technologies and databases I work with.</p>
+          <div class="tech-grid">
+            <div v-for="tech in backendTech.slice(0, 6)" :key="tech.name" class="tech-tag">
+              <img :src="tech.icon" :alt="tech.name" class="tech-icon" />
+              <span>{{ tech.name }}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Experience & Education Card -->
-      <div class="content-card experience-card">
+      <!-- Frontend Technologies Card -->
+      <div class="content-card frontend-tech">
         <div class="card-header">
-          <div class="card-icon">🎓</div>
-          <h3>Background</h3>
+          <div class="card-icon">🎨</div>
+          <h3>Frontend</h3>
         </div>
         <div class="card-body">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h4>{{ yearsExperience }}+ Years Experience</h4>
-              <p>Professional web development and PHP programming</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h4>Full-Stack Development</h4>
-              <p>Frontend to backend solutions with modern frameworks</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h4>Client Success</h4>
-              <p>Delivered scalable solutions for businesses</p>
+          <p>Client-side frameworks and styling technologies.</p>
+          <div class="tech-grid">
+            <div v-for="tech in frontendTech.slice(0, 6)" :key="tech.name" class="tech-tag">
+              <img :src="tech.icon" :alt="tech.name" class="tech-icon" />
+              <span>{{ tech.name }}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Services & Approach Card -->
-      <div class="content-card services-card">
+      <!-- Tools & Workflow Card -->
+      <div class="content-card tools-tech">
         <div class="card-header">
           <div class="card-icon">🛠️</div>
-          <h3>My Approach</h3>
+          <h3>Tools & Workflow</h3>
         </div>
         <div class="card-body">
-          <div class="service-grid">
-            <div class="service-item">
-              <span class="service-icon">🎯</span>
-              <h4>Goal-Oriented</h4>
-              <p>Focus on business objectives and user needs</p>
-            </div>
-            <div class="service-item">
-              <span class="service-icon">⚡</span>
-              <h4>Performance</h4>
-              <p>Optimized code for speed and scalability</p>
-            </div>
-            <div class="service-item">
-              <span class="service-icon">🔒</span>
-              <h4>Security First</h4>
-              <p>Best practices for secure applications</p>
-            </div>
-            <div class="service-item">
-              <span class="service-icon">📱</span>
-              <h4>Responsive</h4>
-              <p>Mobile-first, cross-platform solutions</p>
+          <p>Development tools and workflow technologies I use daily.</p>
+          <div class="tech-grid">
+            <div v-for="tech in toolsTech.slice(0, 6)" :key="tech.name" class="tech-tag">
+              <img :src="tech.icon" :alt="tech.name" class="tech-icon" />
+              <span>{{ tech.name }}</span>
             </div>
           </div>
         </div>
@@ -199,9 +148,6 @@ const emit = defineEmits<{
               target="_blank"
               rel="noopener"
             >
-              <span class="contact-icon">
-                {{ link.type === 'email' ? '✉️' : link.type === 'linkedin' ? '💼' : '🔗' }}
-              </span>
               {{ link.label }}
             </a>
           </div>
@@ -368,13 +314,62 @@ const emit = defineEmits<{
   gap: 0.5rem;
 }
 
+/* Tech Grid for individual tech cards */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .tech-tag {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
   font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  flex-direction: row; /* Changed from column to row */
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  gap: 0.5rem; /* Space between icon and text */
+  min-height: 50px; /* Reduced height since we're going horizontal */
+}
+
+.tech-icon {
+  width: 20px; /* Slightly smaller for side-by-side layout */
+  height: 20px;
+  filter: brightness(0) invert(1); /* Makes SVG icons white */
+  transition: transform 0.3s ease;
+  flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+.tech-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.tech-tag:hover .tech-icon {
+  transform: scale(1.1);
+}
+
+/* Specific styling for different tech cards */
+.backend-tech .tech-tag {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.frontend-tech .tech-tag {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+}
+
+.tools-tech .tech-tag {
+  background: linear-gradient(135deg, #805ad5 0%, #6b46c1 100%);
 }
 
 /* Contact Grid */
@@ -535,6 +530,24 @@ const emit = defineEmits<{
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .tech-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(120px, 1fr)
+    ); /* Increased min width for side-by-side */
+  }
+
+  .tech-tag {
+    padding: 0.6rem 0.8rem;
+    min-height: 45px;
+    font-size: 0.8rem;
+  }
+
+  .tech-icon {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -558,6 +571,21 @@ const emit = defineEmits<{
 
   .timeline-item {
     gap: 0.75rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .tech-tag {
+    padding: 0.5rem 0.6rem;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  .tech-icon {
+    width: 16px;
+    height: 16px;
   }
 }
 </style>

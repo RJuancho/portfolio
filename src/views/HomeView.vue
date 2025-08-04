@@ -31,7 +31,7 @@ const specialties = [
   'WordPress Development',
 ]
 
-const test = ['Wild Rift', 'API Development', 'E-commerce Solutions', 'WordPress Development']
+const test = ['API Development', 'E-commerce Solutions', 'WordPress Development']
 
 const featuredProjects = [
   {
@@ -44,11 +44,28 @@ const featuredProjects = [
   },
 ]
 
-const techStack = {
-  backend: ['PHP', 'Laravel', 'MySQL', 'PostgreSQL'],
-  frontend: ['JavaScript', 'Vue.js', 'Bootstrap', 'Tailwind CSS'],
-  tools: ['Git', 'Composer', 'Docker', 'REST APIs'],
-}
+// Split tech stack into separate categories - all with icons
+const backendTech = [
+  { name: 'PHP', icon: '/icons/php.svg' },
+  { name: 'Java', icon: '/icons/java.svg' },
+  { name: 'MySQL', icon: '/icons/mysql.svg' },
+  { name: 'PostgreSQL', icon: '/icons/postgresql.svg' },
+  { name: 'Node.js', icon: '/icons/nodejs.svg' },
+  { name: 'MongoDB', icon: '/icons/mongodb.svg' },
+]
+
+const frontendTech = [
+  { name: 'JavaScript', icon: '/icons/javascript.svg' },
+  { name: 'Vue.js', icon: '/icons/vue.svg' },
+  { name: 'React', icon: '/icons/react.svg' },
+  { name: 'Tailwind CSS', icon: '/icons/tailwindcss.svg' },
+]
+const toolsTech = [
+  { name: 'Git', icon: '/icons/git.svg' },
+  { name: 'VS Code', icon: '/icons/vscode.png' },
+  { name: 'Composer', icon: '/icons/composer.svg' },
+  { name: 'Postman', icon: '/icons/postman.svg' },
+]
 
 const contactLinks = [
   { type: 'email', url: `mailto:${contactEmail}`, label: '📧 Email Me' },
@@ -64,7 +81,9 @@ const contactLinks = [
       :stats="stats"
       :specialties="specialties"
       :featured-projects="featuredProjects"
-      :tech-stack="techStack"
+      :backend-tech="backendTech"
+      :frontend-tech="frontendTech"
+      :tools-tech="toolsTech"
       :contact-links="contactLinks"
       :test="test"
       @download-resume="downloadResume"
