@@ -27,8 +27,8 @@ const emit = defineEmits<{
     <!-- Hero Section -->
     <HeroSection
       title="Ralph Juancho Villaluz"
-      subtitle="PHP Developer & Web Solutions Expert"
-      :description="`Crafting robust web applications with ${yearsExperience}+ years of experience in PHP development. Passionate about creating scalable solutions that drive business growth.`"
+      subtitle="Full-Stack Developer & Technology Enthusiast"
+      :description="`Building end-to-end web solutions with ${yearsExperience} year of experience across multiple technologies. Passionate about creating scalable applications from frontend to backend.`"
       :years-experience="yearsExperience"
       @view-projects="emit('viewProjects')"
       @download-resume="emit('downloadResume')"
@@ -42,11 +42,14 @@ const emit = defineEmits<{
       <!-- What I Do Card -->
       <div class="content-card what-i-do">
         <div class="card-header">
-          <div class="card-icon">💼</div>
+          <div class="card-icon">💻</div>
           <h3>What I Do</h3>
         </div>
         <div class="card-body">
-          <p>Building modern web applications with focus on performance and scalability.</p>
+          <p>
+            Developing complete web solutions from database design to user interfaces, leveraging
+            modern technologies for optimal performance.
+          </p>
           <div class="specialties-grid">
             <div
               class="specialty-item"
@@ -84,10 +87,10 @@ const emit = defineEmits<{
       <div class="content-card backend-tech">
         <div class="card-header">
           <div class="card-icon">⚙️</div>
-          <h3>Backend</h3>
+          <h3>Backend & Databases</h3>
         </div>
         <div class="card-body">
-          <p>Server-side technologies and databases I work with.</p>
+          <p>Server-side technologies, APIs, and database management systems I work with.</p>
           <div class="tech-grid">
             <div v-for="tech in backendTech.slice(0, 6)" :key="tech.name" class="tech-tag">
               <img :src="tech.icon" :alt="tech.name" class="tech-icon" />
@@ -101,10 +104,13 @@ const emit = defineEmits<{
       <div class="content-card frontend-tech">
         <div class="card-header">
           <div class="card-icon">🎨</div>
-          <h3>Frontend</h3>
+          <h3>Frontend & UI</h3>
         </div>
         <div class="card-body">
-          <p>Client-side frameworks and styling technologies.</p>
+          <p>
+            Modern frontend frameworks, libraries, and styling technologies for creating engaging
+            user experiences.
+          </p>
           <div class="tech-grid">
             <div v-for="tech in frontendTech.slice(0, 6)" :key="tech.name" class="tech-tag">
               <img :src="tech.icon" :alt="tech.name" class="tech-icon" />
@@ -118,10 +124,13 @@ const emit = defineEmits<{
       <div class="content-card tools-tech">
         <div class="card-header">
           <div class="card-icon">🛠️</div>
-          <h3>Tools & Workflow</h3>
+          <h3>DevOps & Tools</h3>
         </div>
         <div class="card-body">
-          <p>Development tools and workflow technologies I use daily.</p>
+          <p>
+            Development tools, version control, deployment platforms, and workflow optimization
+            technologies.
+          </p>
           <div class="tech-grid">
             <div v-for="tech in toolsTech.slice(0, 6)" :key="tech.name" class="tech-tag">
               <img :src="tech.icon" :alt="tech.name" class="tech-icon" />
@@ -135,10 +144,13 @@ const emit = defineEmits<{
       <div class="content-card contact-card">
         <div class="card-header">
           <div class="card-icon">📧</div>
-          <h3>Get In Touch</h3>
+          <h3>Let's Build Together</h3>
         </div>
         <div class="card-body">
-          <p>Ready to start your next project? Let's collaborate!</p>
+          <p>
+            Ready to bring your full-stack project to life? Let's discuss your vision and create
+            something amazing!
+          </p>
           <div class="contact-grid">
             <a
               v-for="link in contactLinks"

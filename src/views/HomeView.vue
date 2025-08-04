@@ -6,11 +6,11 @@ const router = useRouter()
 
 // Page-level data and logic
 const contactEmail = 'rjvillaluz@example.com'
-const yearsExperience = 2
+const yearsExperience = 1
 
 // Page-level actions
 const downloadResume = () => {
-  window.open('/resume.pdf', '_blank')
+  window.open('/Villaluz_Resume.pdf', '_blank')
 }
 
 const viewProjects = () => {
@@ -19,7 +19,7 @@ const viewProjects = () => {
 
 // Portfolio data
 const stats = [
-  { value: `${yearsExperience}+`, label: 'Years Experience' },
+  { value: `${yearsExperience}`, label: 'Year Experience' },
   { value: '50+', label: 'Projects Completed' },
   { value: '100%', label: 'Client Satisfaction' },
 ]
@@ -28,7 +28,7 @@ const specialties = [
   'Web Applications',
   'API Development',
   'E-commerce Solutions',
-  'WordPress Development',
+  'Database Design',
 ]
 
 const test = ['API Development', 'E-commerce Solutions', 'WordPress Development']
