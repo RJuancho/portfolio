@@ -67,6 +67,11 @@ const closeMobileMenu = () => {
 </template>
 
 <style scoped>
+/* Add this to prevent horizontal scroll */
+:global(body) {
+  overflow-x: hidden;
+}
+
 header {
   background: var(--color-background);
   border-bottom: 1px solid var(--color-border);
@@ -132,7 +137,10 @@ nav {
   background: var(--color-background);
   border-left: 1px solid var(--color-border);
   transform: translateX(100%);
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    visibility 0.3s;
+  visibility: hidden;
   z-index: 999;
   padding-top: 80px;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
@@ -140,6 +148,7 @@ nav {
 
 .mobile-nav.open {
   transform: translateX(0);
+  visibility: visible;
 }
 
 .mobile-nav-links {
