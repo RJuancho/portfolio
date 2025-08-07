@@ -47,10 +47,10 @@ const featuredProjects = [
 // Split tech stack into separate categories - all with icons
 const backendTech = [
   { name: 'PHP', icon: '/icons/php.svg' },
+  { name: 'Node.js', icon: '/icons/nodejs.svg' },
   { name: 'Java', icon: '/icons/java.svg' },
   { name: 'MySQL', icon: '/icons/mysql.svg' },
   { name: 'PostgreSQL', icon: '/icons/postgresql.svg' },
-  { name: 'Node.js', icon: '/icons/nodejs.svg' },
   { name: 'MongoDB', icon: '/icons/mongodb.svg' },
 ]
 
