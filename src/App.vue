@@ -67,8 +67,25 @@ const closeMobileMenu = () => {
 </template>
 
 <style scoped>
-/* Add this to prevent horizontal scroll */
+/* Prevent horizontal scroll - more aggressive approach */
+:global(*) {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+:global(html) {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
 :global(body) {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+}
+
+/* Add this to prevent horizontal scroll */
+:global(html, body) {
   overflow-x: hidden;
 }
 
@@ -144,6 +161,7 @@ nav {
   z-index: 999;
   padding-top: 80px;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 100vw;
 }
 
 .mobile-nav.open {
@@ -182,7 +200,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
@@ -249,7 +267,7 @@ footer {
   }
 
   .mobile-nav {
-    width: 100vw;
+    width: 100%;
     transform: translateX(100%);
   }
 
